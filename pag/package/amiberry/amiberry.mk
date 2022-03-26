@@ -4,7 +4,7 @@
 #
 ################################################################################
 
-AMIBERRY_VERSION = v4.1.6
+AMIBERRY_VERSION = baabdf143c51b8a264129ccc11ad6cc2d81bd2b2
 AMIBERRY_SITE = https://github.com/midwan/amiberry.git
 AMIBERRY_SITE_METHOD = git
 AMIBERRY_GIT_SUBMODULES = YES
@@ -14,9 +14,6 @@ AMIBERRY_LICENSE_FILES = COPYING
 AMIBERRY_PLATFORM=rpi4-64-sdl2
 
 define AMIBERRY_BUILD_CMDS
-	CFLAGS="$(TARGET_CFLAGS) $(COMPILER_COMMONS_CFLAGS_SO)" \
-	CXXFLAGS="$(TARGET_CXXFLAGS) $(COMPILER_COMMONS_CXXFLAGS_SO)" \
-	LDFLAGS="$(TARGET_LDFLAGS) $(COMPILER_COMMONS_LDFLAGS_SO)" \
 	$(MAKE) CXX="$(TARGET_CXX)" \
 		CC="$(TARGET_CC)" \
 		LD="$(TARGET_LD)" \
@@ -25,22 +22,23 @@ define AMIBERRY_BUILD_CMDS
 		-C $(@D) \
 		-f Makefile \
 		PLATFORM="$(AMIBERRY_PLATFORM)" \
-		SDL_CONFIG="$(STAGING_DIR)/usr/bin/sdl2-config"
+		SDL_CONFIG="$(STAGING_DIR)/usr/bin/sdl2-config" \
+		USE_LD=""
 endef
 
 define AMIBERRY_INSTALL_TARGET_CMDS
-	$(INSTALL) -D -m 0755 $(@D)/amiberry $(TARGET_DIR)/usr/bin/amiberry
-	mkdir -p $(TARGET_DIR)/usr/share/amiberry
-	cp -R $(@D)/data $(TARGET_DIR)/usr/share/amiberry
-	cp -R $(@D)/kickstarts $(TARGET_DIR)/usr/share/amiberry
-	cp -R $(@D)/whdboot $(TARGET_DIR)/usr/share/amiberry
-	rm $(TARGET_DIR)/usr/share/amiberry/whdboot/save-data/Savegames/foo.txt
-	rm $(TARGET_DIR)/usr/share/amiberry/whdboot/save-data/Kickstarts/foo.txt
-	rm $(TARGET_DIR)/usr/share/amiberry/whdboot/save-data/Debugs/foo.txt
-	rm $(TARGET_DIR)/usr/share/amiberry/whdboot/save-data/Autoboots/foo.txt
+	mkdir -p $(TARGET_DIR)/home/amiga
+	$(INSTALL) -D -m 0755 $(@D)/amiberry $(TARGET_DIR)/home/amiga/amiberry
+	cp -R $(@D)/data $(TARGET_DIR)/home/amiga
+	cp -R $(@D)/kickstarts $(TARGET_DIR)/home/amiga
+	cp -R $(@D)/whdboot $(TARGET_DIR)/home/amiga
+	rm $(TARGET_DIR)/home/amiga/whdboot/save-data/Savegames/foo.txt
+	rm $(TARGET_DIR)/home/amiga/whdboot/save-data/Kickstarts/foo.txt
+	rm $(TARGET_DIR)/home/amiga/whdboot/save-data/Debugs/foo.txt
+	rm $(TARGET_DIR)/home/amiga/whdboot/save-data/Autoboots/foo.txt
 	# Copy RTB files
-	mkdir -p $(TARGET_DIR)/home/amiga/Kickstarts && \
-		cp $(@D)/whdboot/save-data/Kickstarts/*.RTB $(TARGET_DIR)/home/amiga/Kickstarts/
+	mkdir -p $(TARGET_DIR)/home/amiga/kickstarts && \
+		cp $(@D)/whdboot/save-data/Kickstarts/*.RTB $(TARGET_DIR)/home/amiga/kickstarts/
 endef
 
 $(eval $(generic-package))

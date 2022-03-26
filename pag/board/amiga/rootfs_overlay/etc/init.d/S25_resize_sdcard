@@ -1,0 +1,52 @@
+#!/bin/sh
+
+resize_partition() {
+	PARTNUM=`fdisk -l /dev/mmcblk0 | grep mmcblk0p | wc -l`
+	#if two partitions on SD card are found
+	if [ ${PARTNUM} -eq 2 ]
+	then
+		#let's check their names and type
+		PART2RESIZE=`fdisk -l /dev/mmcblk0 | grep Linux | awk '{print $1}'`
+		#we ensure that the only Linux partition is 2
+		if [ "${PART2RESIZE}" == "/dev/mmcblk0p2" ];then
+			fdisk /dev/mmcblk0 << PARTCMD
+p
+d
+2
+n
+p
+2
+
+
+w
+PARTCMD
+		fi
+	fi
+}
+
+case "$1" in
+  start)
+	if [ -e /root/.resized ]; then
+		/sbin/resize2fs /dev/mmcblk0p2
+		mv /etc/init.d/S25_resize_sdcard /etc/init.d/_S25_resize_sdcard
+		rm -f /root/.resized
+		sync
+		reboot
+	else
+		touch /root/.resized
+		resize_partition
+		sync
+		reboot
+	fi
+        ;;
+  stop)
+        ;;
+  restart|reload)
+        "$0" stop
+        "$0" start
+        ;;
+  *)
+        echo "Usage: $0 {start|stop|restart}"
+        exit 1
+esac
+
