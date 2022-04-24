@@ -1,6 +1,6 @@
 #!/bin/bash
 set -ex
-BUILDROOT_VERSION=2022.02
+BUILDROOT_VERSION=2022.02.1
 EXT=xz
 if [ ! -e "buildroot-${BUILDROOT_VERSION}.tar.${EXT}" ]; then
 	wget "https://buildroot.org/downloads/buildroot-${BUILDROOT_VERSION}.tar.${EXT}"
