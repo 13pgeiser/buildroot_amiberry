@@ -5,7 +5,7 @@
 ################################################################################
 
 #AMIBERRY_VERSION = baabdf143c51b8a264129ccc11ad6cc2d81bd2b2
-AMIBERRY_VERSION = v5.1
+AMIBERRY_VERSION = v5.4
 AMIBERRY_SITE = https://github.com/midwan/amiberry.git
 AMIBERRY_SITE_METHOD = git
 AMIBERRY_GIT_SUBMODULES = YES
