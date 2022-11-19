@@ -1,0 +1,1 @@
+amiga -1 amiga -1 =amiga /home/amiga /bin/sh sudo,users,video,audio,input amiga
