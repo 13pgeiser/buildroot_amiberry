@@ -13,7 +13,7 @@ if [ ! -e "buildroot-${BUILDROOT_VERSION}" ]; then
 		tar xvjf "buildroot-${BUILDROOT_VERSION}.tar.${EXT}"
 	fi
 fi
-sudo apt install -y sed make binutils gcc g++ bash patch gzip bzip2 perl tar cpio python unzip rsync wget libncurses-dev
+sudo apt install -y sed make binutils gcc g++ bash patch gzip bzip2 perl tar cpio python2 python3 unzip rsync wget libncurses-dev
 (
 	cd "buildroot-${BUILDROOT_VERSION}" || exit 1
 	make BR2_EXTERNAL=../pag raspberrypi4_64_defconfig
