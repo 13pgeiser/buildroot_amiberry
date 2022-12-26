@@ -6,3 +6,5 @@ Heavily based on:
  * https://gitlab.com/recalbox/recalbox/-/tree/master/package/amiberry
  * https://buildroot.org/
 
+Runs on Raspberry PI 4 and PI 400.
+
