@@ -4,7 +4,7 @@
 #
 ################################################################################
 
-AMIBERRY_VERSION = 5.4
+AMIBERRY_VERSION = 5.5.1
 AMIBERRY_SOURCE = v$(AMIBERRY_VERSION).tar.gz
 AMIBERRY_SITE = https://github.com/BlitterStudio/amiberry/archive/refs/tags
 AMIBERRY_SITE_METHOD = wget
