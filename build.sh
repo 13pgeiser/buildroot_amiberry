@@ -24,7 +24,8 @@ for step in $steps; do
 			;;
 		"apt")
 			sudo apt install -y sed make binutils gcc g++ bash build-essential \
-				patch gzip bzip2 perl tar cpio python2 python3 unzip rsync wget libncurses-dev bc findutils
+				patch gzip bzip2 perl tar cpio python2 python3 unzip rsync wget \
+				libncurses-dev bc findutils zstd
 			;;
 		"defconfig")
 			(
