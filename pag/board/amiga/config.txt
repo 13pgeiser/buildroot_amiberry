@@ -1,9 +1,3 @@
-# Please note that this is only a sample, we recommend you to change it to fit
-# your needs.
-# You should override this file using BR2_PACKAGE_RPI_FIRMWARE_CONFIG_FILE.
-# See http://buildroot.org/manual.html#rootfs-custom
-# and http://elinux.org/RPiconfig for a description of config.txt syntax
-
 start_file=start4.elf
 fixup_file=fixup4.dat
 
@@ -21,10 +15,6 @@ disable_overscan=1
 gpu_mem_256=100
 gpu_mem_512=100
 gpu_mem_1024=100
-gpu_mem=128
-
-# fixes rpi (3B, 3B+, 3A+, 4B and Zero W) ttyAMA0 serial console
-dtoverlay=miniuart-bt
 
 # enable autoprobing of Bluetooth driver without need of hciattach/btattach
 #dtoverlay=krnbt=on
@@ -34,15 +24,7 @@ dtoverlay=miniuart-bt
 #dtoverlay=ov5647
 
 dtoverlay=vc4-fkms-v3d
-max_framebuffers=2
 dtparam=audio=on
-hdmi_ignore_edid=0xa5000080
-hdmi_force_hotplug=1
-hdmi_group=2
-hdmi_mode=87
-hdmi_cvt=1680 1050 50
-hdmi_drive=2
-hdmi_force_edid_audio=1
 
 # enable 64bits support
 arm_64bit=1
@@ -50,3 +32,4 @@ arm_64bit=1
 [pi4]
 # Run as fast as firmware / board allows
 arm_boost=1
+
