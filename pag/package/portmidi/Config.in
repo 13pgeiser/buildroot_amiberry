@@ -1,0 +1,7 @@
+config BR2_PACKAGE_PORTMIDI
+	bool "portmidi"
+	help
+	  portmidi is a cross-platform MIDI input/output library
+
+	  https://github.com/PortMidi/portmidi
+

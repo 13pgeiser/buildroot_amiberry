@@ -4,6 +4,7 @@ config BR2_PACKAGE_AMIBERRY
 	select BR2_PACKAGE_MPG123
 	select BR2_PACKAGE_SDL2_TTF
 	select BR2_PACKAGE_SDL2_GFX
+	select BR2_PACKAGE_PORTMIDI
 	help
 	  An Amiga emulator
 

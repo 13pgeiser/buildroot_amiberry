@@ -1,1 +1,2 @@
+source "$BR2_EXTERNAL_PAG_PATH/package/portmidi/Config.in"
 source "$BR2_EXTERNAL_PAG_PATH/package/amiberry/Config.in"
