@@ -1,0 +1,7 @@
+config BR2_PACKAGE_LIBENET
+	bool "libenet"
+	help
+	  ENet reliable UDP networking library 
+
+	  https://github.com/lsalzman/enet
+
