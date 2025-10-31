@@ -4,7 +4,7 @@
 #
 ################################################################################
 
-PORTMIDI_VERSION = 2.0.4
+PORTMIDI_VERSION = 2.0.6
 PORTMIDI_SOURCE = v$(PORTMIDI_VERSION).tar.gz
 PORTMIDI_SITE = https://github.com/PortMidi/portmidi/archive/refs/tags
 PORTMIDI_LICENSE = BSD-like

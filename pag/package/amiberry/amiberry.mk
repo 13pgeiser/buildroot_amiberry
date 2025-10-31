@@ -15,7 +15,7 @@ AMIBERRY_PLATFORM=rpi4-64-sdl2
 AMIBERRY_INSTALL_STAGING = NO
 AMIBERRY_INSTALL_TARGET = YES
 AMIBERRY_SUPPORTS_IN_SOURCE_BUILD = NO
-AMIBERRY_CONF_OPTS = -DLIBENET_LIBRARIES=$(STAGING_DIR)/usr/lib/static/libenet.a
+AMIBERRY_CONF_OPTS = -DLIBENET_LIBRARIES=$(STAGING_DIR)/usr/lib/static/libenet.a -DCMAKE_INSTALL_PREFIX:PATH=$(TARGET_DIR)/usr
 
 define AMIBERRY_INSTALL_TARGET_CMDS
 	mkdir -p $(TARGET_DIR)/home/amiga
@@ -24,6 +24,7 @@ define AMIBERRY_INSTALL_TARGET_CMDS
 	cp -R $(@D)/data $(TARGET_DIR)/home/amiga
 	cp -R $(@D)/roms/*.bin $(TARGET_DIR)/home/amiga/kickstarts/
 	cp -R $(@D)/whdboot $(TARGET_DIR)/home/amiga
+	cd $(AMIBERRY_BUILDDIR) && make install
 endef
 
 $(eval $(cmake-package))

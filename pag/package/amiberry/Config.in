@@ -8,7 +8,7 @@ config BR2_PACKAGE_AMIBERRY
 	help
 	  An Amiga emulator
 
-	  https://github.com/midwan/amiberry
+	  https://github.com/BlitterStudio/amiberry-lite
 
 comment "Amiberry depends on SDL2"
 	depends on !(BR2_PACKAGE_SDL2)
