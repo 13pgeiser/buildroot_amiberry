@@ -1,7 +1,7 @@
 #!/bin/bash
 set -ex
 EXT=xz
-BUILDROOT_VERSION=2025.08.1
+BUILDROOT_VERSION=2026.08
 if [ -z "$1" ]; then
 	steps="buildroot apt defconfig sdk build release"
 else
